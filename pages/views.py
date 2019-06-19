@@ -16,14 +16,17 @@ def home(request):
 
     rep=requests.get("https://api.openweathermap.org/data/2.5/forecast?q=Kochi,in&appid="+api)
     repjson=json.loads(rep.text)
+    repjson=repjson['list']
+    day=['mon','tue','wed','thu','fri','sat','sun']
 
     obj={}
-
-
-    for day in forcast:
-        i,j=forcast[day]
-
-        s=i-j
+    
+    for k,i in enumerate(repjson,day):
+        j=i['main']
+        h=j['temp_max']
+        l=j['temp_min']
+        
+        s=h-l
 
         if(0<=s<5):
             w="sunny.png"
@@ -32,10 +35,29 @@ def home(request):
         else:
             w="drop.png"
         
-        obj[day]=w    
+        obj[k]=w    
 
 
     return render(request,'home.html',{"obj":obj})
+
+##### Hard coded ##############
+
+#     for day in forcast:
+#         i,j=forcast[day]
+
+#         s=i-j
+
+#         if(0<=s<5):
+#             w="sunny.png"
+#         elif(5<=s<10):
+#             w="cloud.png"
+#         else:
+#             w="drop.png"
+        
+#         obj[day]=w    
+
+
+#     return render(request,'home.html',{"obj":obj})
 
 
 
