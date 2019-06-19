@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+
+
+
+      <div class="col-lg-8">
+ 
+        <div class="card my-4" >
+          <h5 class="card-header" >Weather report:</h5>
+          <div class="card-body">
+  
+              <div class="form-group">
+
+               {% for key,val in obj.items  %}
+
+  <p><span class="text-uppercase font-weight-bold">{{key}}</span> : <span class="text-capitalize font-weight-normal" ></span> 
+<img src="/assets/icons/{{val}}" style="float:right" width="5%"> </p>
+
+
+
+
+
+                 
+               {% endfor %}
+
+
+
+
+
+
+
+
+              </div>
+             
+
+          </div>
+        </div>
+
+       </div>
+
+
+{% endblock body %}
+      
+
+
+ 
