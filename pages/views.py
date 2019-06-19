@@ -13,6 +13,10 @@ forcast={
 
 
 def home(request):
+
+    rep=requests.get("https://api.openweathermap.org/data/2.5/forecast?q=Kochi,in&appid="+api)
+    repjson=json.loads(rep.text)
+
     obj={}
 
 
