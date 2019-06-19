@@ -1,6 +1,8 @@
 # weather
 ## Shows 5 day weather forecast
 
+### Implemented using django framework
+
 
 ### Desktop view
 
